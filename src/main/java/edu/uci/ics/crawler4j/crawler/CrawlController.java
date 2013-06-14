@@ -168,7 +168,8 @@ public class CrawlController extends Configurable {
 							while (true) {
 								sleep(10);
 								boolean someoneIsWorking = false;
-								for (int i = 0; i < threads.size(); i++) {
+								int sizeth = threads.size()
+								for (int i = 0; i < sizeth; i++) {
 									Thread thread = threads.get(i);
 									if (!thread.isAlive()) {
 										if (!shuttingDown) {
@@ -195,7 +196,7 @@ public class CrawlController extends Configurable {
 									sleep(10);
 
 									someoneIsWorking = false;
-									for (int i = 0; i < threads.size(); i++) {
+									for (int i = 0; i < sizeth; i++) {
 										Thread thread = threads.get(i);
 										if (thread.isAlive() && crawlers.get(i).isNotWaitingForNewURLs()) {
 											someoneIsWorking = true;
